@@ -3,20 +3,19 @@
 /**
  * main - Entry point
  *
- * This program prints the lower case alphabets in reverse
+ * This program prints lowercase alphabets in reverse
  *
- * Result: (0) Success
+ * Return: (0) Success
  */
-
-void main(void)
+int main(void)
 {
-	char c = 'z';
+	char c;
 
-	while (c >= 'a')
+	for (c = 'z'; c >= 'a'; c--)
 	{
 		putchar(c);
-		c--;
 	}
 	putchar('\n');
+
 	return (0);
 }
