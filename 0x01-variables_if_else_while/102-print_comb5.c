@@ -9,20 +9,20 @@
  */
 int main(void)
 {
-	int tens;
-	int ones;
+	int n1;
+	int n2;
 
-	for (tens = 0; tens <= 98; tens++)
+	for (n1 = 0; n1 <= 98; n1++)
 	{
-		for (ones = tens + 1; ones <= 99; ones++)
+		for (n2 = n1 + 1; n2 <= 99; n2++)
 		{
-			putchar((tens / 10) + '0');
-			putchar((tens % 10) + '0');
+			putchar((n1 / 10) + '0');
+			putchar((n1 % 10) + '0');
 			putchar(' ');
-			putchar((ones / 10) + '0');
-			putchar((tens % 10) + '0');
+			putchar((n2 / 10) + '0');
+			putchar((n2 % 10) + '0');
 
-			if (tens == 98 && ones == 99)
+			if (n1 == 98 && n2 == 99)
 				continue;
 
 			putchar(',');
