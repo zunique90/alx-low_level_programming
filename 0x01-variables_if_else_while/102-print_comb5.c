@@ -3,7 +3,7 @@
 /**
  * main - Entry point
  *
- * This program prints numbers from 00 to 99
+ * This program prints all possible combination of 2 digit numbers
  *
  * Return: (0) Success
  */
@@ -12,18 +12,21 @@ int main(void)
 	int tens;
 	int ones;
 
-	for (tens = 0; tens <= 9; tens++)
+	for (tens = 0; tens <= 98; tens++)
 	{
-		for (ones = 0; ones <= 9; ones++)
+		for (ones = tens + 1; ones <= 99; ones++)
 		{
-			putchar(tens + '0');
-			putchar(ones + '0');
+			putchar((tens / 10) + '0');
+			putchar((tens % 10) + '0');
+			putchar(' ');
+			putchar((ones / 10) + '0');
+			putchar((tens % 10) + '0');
 
-			if (!(tens == 9 && ones == 9))
-			{
-				putchar(',');
-				putchar(' ');
-			}
+			if (tens == 98 && ones == 99)
+				continue;
+
+			putchar(',');
+			putchar(' ');
 		}
 	}
 	putchar('\n');
