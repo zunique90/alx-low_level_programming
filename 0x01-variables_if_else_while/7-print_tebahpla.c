@@ -8,7 +8,7 @@
  * Result: (0) Success
  */
 
-main(void)
+int main(void)
 {
 	char c = 'z';
 
