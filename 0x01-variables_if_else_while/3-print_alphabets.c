@@ -14,20 +14,20 @@ int main (void)
 
         char c = 'a';
 
-        while (c <= 'z');
-        {
-                putchar(c);
-                c++;
-        }
+	while (c <= 'z')
+	{
+		putchar(c);
+		c++;
+	}
 
-        char d = 'A';
+	char c = 'A'
 
-        while (d <= 'Z');
-        {
-                putchar(d);
-                d++;
-        }
+	while (c <= 'Z')
+	{
+		putchar(c);
+		c++
+	}
+
         putchar ('\n');
         return (0);
 }
-
