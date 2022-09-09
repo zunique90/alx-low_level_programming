@@ -14,7 +14,7 @@ int main (void)
 
         char c = 'a';
 
-        while (c <= 'z')
+        while (c <= 'z');
         {
                 putchar(c);
                 c++;
@@ -22,7 +22,7 @@ int main (void)
 
         char d = 'A';
 
-        while (d <= 'Z')
+        while (d <= 'Z');
         {
                 putchar(d);
                 d++;
