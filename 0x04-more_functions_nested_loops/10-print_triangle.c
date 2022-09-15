@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -7,32 +6,26 @@
  *
  * Return: returns nothing
  */
-
 void print_triangle(int size)
 {
-	int i;
-	int j;
-	char;
+	int hash, index;
 
-
-	c = '#';
-	for (i = 1; i <= size; i++)
+	if (size > 0)
 	{
-		for (j = 0; j > size; j++)
+		for (hash = 1; hash <= size; hash++)
 		{
-			if ((j + i) < size)
-			{
-				putchar(' ');
-			}
-			if ((j + i) >= size)
-			{
-				putchar('#');
-			}
+			for (index = size - hash; index > 0; index--)
+				_putchar(' ');
+
+			for (index = 0; index < hash; index++)
+				_putchar('#');
+
+			if (hash == size)
+				continue;
+
+			_putchar('\n');
 		}
-		putchar('\n');
 	}
-	if (size <= 0)
-	{
-		_putchar('\n');
-	}
+
+	_putchar('\n');
 }
