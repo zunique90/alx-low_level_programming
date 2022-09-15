@@ -19,18 +19,18 @@ void print_triangle(int size)
 		{
 			if ((j + i) < size)
 			{
-				_putchar(' ');
+				putchar(' ');
 			}
 			if ((n + i) >= size)
 			{
-				_putchar(c);
+				putchar(c);
 			}
 		}
-		_putchar('\n');
+		putchar('\n');
 	}
 
 	if (size <= 0)
 	{
-		_putchar('\n');
+		putchar('\n');
 	}
 }
