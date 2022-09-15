@@ -18,9 +18,13 @@ void print_triangle(int size)
 		for (j = 0; j < size; j++)
 		{
 			if ((j + i) < size)
+			{
 				_putchar(' ');
+			}
 			if ((n + i) >= size)
+			{
 				_putchar(c);
+			}
 		}
 		_putchar('\n');
 	}
