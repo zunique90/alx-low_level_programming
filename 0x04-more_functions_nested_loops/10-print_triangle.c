@@ -11,9 +11,8 @@ void print_triangle(int size)
 {
 	int i;
 	int j;
-	char c;
 
-	c = 35;
+
 	for (i = 1; i <= size; i++)
 	{
 		for (j = 0; j < size; j++)
@@ -24,7 +23,7 @@ void print_triangle(int size)
 			}
 			if ((n + i) >= size)
 			{
-				putchar(c);
+				putchar('#');
 			}
 		}
 		putchar('\n');
