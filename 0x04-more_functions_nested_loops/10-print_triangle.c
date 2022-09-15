@@ -2,7 +2,7 @@
 
 /**
  * print_triangle - prints a triangle
- * @size: size of triangle
+ * @size: size of the triangle
  *
  * Return: no return
  */
@@ -14,6 +14,7 @@ void print_triangle(int size)
 	char c;
 
 	c = '#';
+
 	for (i = 1; i <= size; i++)
 	{
 		for (j = 0; j < size; j++)
