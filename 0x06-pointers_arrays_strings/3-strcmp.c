@@ -4,26 +4,23 @@
  * @s1: first string
  * @s2: second string
  *
- * Return: if s1 is > s2 - positive return difference
- * if s1 == s2 - return 0
- * else return negative difference
+ * Return: an integer
  */
 int _strcmp(char *s1, char *s2)
 {
 	int flag, i;
 
+	flag = 0;
 	for (i = 0; s1[i] != '\0' || s2[i] != '\0'; i++)
 	{
-		if (s1[i] < s2[i])
+		if (s1[i] - s2[i] != 0)
 		{
-			flag = (*s1 - *s2);
+			flag = s1[i] - s2[i];
+			break;
 		}
-		else if (s1[i] == s2[i])
-		{
-			flag = 0;
-		}
-		else
-			flag = (*s1 - *s2);
 	}
+	if (flag == 0 && s1[i] == '\0')
+		flag = s1[i] - s2[i];
+
 	return (flag);
 }
