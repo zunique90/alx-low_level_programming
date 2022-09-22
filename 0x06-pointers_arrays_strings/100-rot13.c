@@ -12,7 +12,7 @@ char *rot13(char *s)
 	char str1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char str2[] = "NOPQRiTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (s[i])
 	{
 		for (j = 0; j < 52; j++)
 		{
@@ -22,6 +22,7 @@ char *rot13(char *s)
 				break;
 			}
 		}
+		i++;
 	}
 	return (s);
 }
