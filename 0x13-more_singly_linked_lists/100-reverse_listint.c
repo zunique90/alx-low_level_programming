@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdio.h>
 /**
  * reverse_listint - reverses a listint_t list
  * @head: pointer to the head node of the list
