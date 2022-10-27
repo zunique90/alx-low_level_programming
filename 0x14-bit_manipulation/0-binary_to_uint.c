@@ -19,7 +19,7 @@ unsigned int binary_to_uint(const char *b)
 
 	for (l -= 1; l >= 0; l--)
 	{
-		if (b[l] != '0' && b[l] != '1')
+		if (((b[l]) != '0') && ((b[l]) != '1') && ((b[l]) != '\0'))
 			return (0);
 
 		n += (b[l] - '0') * m;
