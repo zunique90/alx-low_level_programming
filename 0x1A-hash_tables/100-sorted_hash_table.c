@@ -96,8 +96,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	return (1);
 }
 
-#include "hash_tables.h"
-
 /**
  * shash_table_get - retrieves a value associated with a key.
  * @ht: the sorted hash table you want to look into
@@ -109,6 +107,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
 	unsigned long int hsh;
+	shash_node_t *tmp;
 
 	if ((ht == NULL) || (key == NULL))
 		return (NULL);
@@ -117,12 +116,84 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	if (hsh >= ht->size)
 		return (NULL);
 
-	while (ht->shead)
+	tmp = ht->shead;
+	while (tmp)
 	{
-		if (strcmp(key, ht->shead->key) == 0)
-			return (ht->shead->value);
-		ht->shead = ht->shead->next;
+		if (strcmp(key, tmp->key) == 0)
+			return (tmp->value);
+		tmp = tmp->next;
 	}
 	return (NULL);
 }
 
+/**
+ * shash_table_print - Prints a sorted hash table.
+ * @ht: the sorted hash table.
+ */
+void shash_table_print(const shash_table_t *ht)
+{
+	shash_node_t *tmp;
+
+	if (ht == NULL)
+		return;
+
+	tmp = ht->shead;
+	printf("{");
+	while (tmp != NULL)
+	{
+		printf("'%s': '%s'", tmp->key, tmp->value);
+		tmp = tmp->snext;
+		if (tmp != NULL)
+			printf(", ");
+	}
+	printf("}\n");
+}
+
+/**
+ * shash_table_print_rev - Prints a sorted hash table in reverse order.
+ * @ht: the sorted hash table.
+ */
+void shash_table_print_rev(const shash_table_t *ht)
+{
+	shash_node_t *tmp;
+
+	if (ht == NULL)
+		return;
+
+	tmp = ht->stail;
+	printf("{");
+	while (tmp != NULL)
+	{
+		printf("'%s': '%s'", tmp->key, tmp->value);
+		tmp = tmp->sprev;
+		if (tmp != NULL)
+			printf(", ");
+	}
+	printf("}\n");
+}
+
+/**
+ * shash_table_delete - Deletes a sorted hash table.
+ * @ht: the sorted hash table.
+ */
+void shash_table_delete(shash_table_t *ht)
+{
+	shash_table_t *head = ht;
+	shash_node_t *node, *tmp;
+
+	if (ht == NULL)
+		return;
+
+	node = ht->shead;
+	while (node)
+	{
+		tmp = node->snext;
+		free(node->key);
+		free(node->value);
+		free(node);
+		node = tmp;
+	}
+
+	free(head->array);
+	free(head);
+}
